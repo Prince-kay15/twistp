@@ -28,7 +28,7 @@ const Navigation = () => {
     >
       <div className="container mx-auto px-6 flex items-center justify-between">
         <a href="#" className="font-display text-xl font-bold text-foreground">
-          <span className="text-gradient">Dev</span>Tech
+          <span className="text-gradient">TWIST</span>
         </a>
 
         {/* Desktop Navigation */}

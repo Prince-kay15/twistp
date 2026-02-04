@@ -1,4 +1,5 @@
-import { Mail, Phone, MapPin, Send, Linkedin, Github, Twitter } from "lucide-react";
+import { Mail, Phone, MapPin, Send, MessageCircle } from "lucide-react";
+import { FaXTwitter, FaInstagram, FaSnapchat, FaTiktok } from "react-icons/fa6";
 import { useState } from "react";
 
 const Contact = () => {
@@ -39,23 +40,33 @@ const Contact = () => {
               <h3 className="text-xl font-semibold font-display mb-6">Contact Information</h3>
               
               <div className="space-y-6">
-                <a href="mailto:hello@example.com" className="flex items-center gap-4 text-muted-foreground hover:text-primary transition-colors group">
+                <a href="mailto:princekay043@gmail.com" className="flex items-center gap-4 text-muted-foreground hover:text-primary transition-colors group">
                   <div className="p-3 rounded-xl bg-secondary group-hover:bg-primary/10 transition-colors">
                     <Mail className="w-5 h-5" />
                   </div>
                   <div>
                     <p className="text-sm text-muted-foreground">Email</p>
-                    <p className="text-foreground">hello@example.com</p>
+                    <p className="text-foreground">princekay043@gmail.com</p>
                   </div>
                 </a>
 
-                <a href="tel:+1234567890" className="flex items-center gap-4 text-muted-foreground hover:text-primary transition-colors group">
+                <a href="tel:+2349126249215" className="flex items-center gap-4 text-muted-foreground hover:text-primary transition-colors group">
                   <div className="p-3 rounded-xl bg-secondary group-hover:bg-primary/10 transition-colors">
                     <Phone className="w-5 h-5" />
                   </div>
                   <div>
                     <p className="text-sm text-muted-foreground">Phone</p>
-                    <p className="text-foreground">+1 (234) 567-890</p>
+                    <p className="text-foreground">+234 912 624 9215</p>
+                  </div>
+                </a>
+
+                <a href="https://wa.me/2349126249215" target="_blank" rel="noopener noreferrer" className="flex items-center gap-4 text-muted-foreground hover:text-primary transition-colors group">
+                  <div className="p-3 rounded-xl bg-secondary group-hover:bg-primary/10 transition-colors">
+                    <MessageCircle className="w-5 h-5" />
+                  </div>
+                  <div>
+                    <p className="text-sm text-muted-foreground">WhatsApp</p>
+                    <p className="text-foreground">Chat with me</p>
                   </div>
                 </a>
 
@@ -65,7 +76,7 @@ const Contact = () => {
                   </div>
                   <div>
                     <p className="text-sm text-muted-foreground">Location</p>
-                    <p className="text-foreground">Available Worldwide</p>
+                    <p className="text-foreground">Nigeria • Available Worldwide</p>
                   </div>
                 </div>
               </div>
@@ -75,13 +86,17 @@ const Contact = () => {
                 <p className="text-sm text-muted-foreground mb-4">Follow me</p>
                 <div className="flex gap-3">
                   {[
-                    { icon: Linkedin, href: "#" },
-                    { icon: Github, href: "#" },
-                    { icon: Twitter, href: "#" },
+                    { icon: FaXTwitter, href: "https://x.com/princekay043", label: "Twitter" },
+                    { icon: FaInstagram, href: "https://www.instagram.com/exetwist/", label: "Instagram" },
+                    { icon: FaSnapchat, href: "https://www.snapchat.com/add/princekay2022", label: "Snapchat" },
+                    { icon: FaTiktok, href: "https://www.tiktok.com/@exetwist", label: "TikTok" },
                   ].map((social, index) => (
                     <a
                       key={index}
                       href={social.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label={social.label}
                       className="p-3 rounded-xl bg-secondary hover:bg-primary/10 hover:text-primary transition-all"
                     >
                       <social.icon className="w-5 h-5" />
