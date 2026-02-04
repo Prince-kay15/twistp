@@ -4,7 +4,7 @@ const Footer = () => {
       <div className="container mx-auto px-6">
         <div className="flex flex-col md:flex-row items-center justify-between gap-4">
           <div className="font-display text-lg font-bold">
-            <span className="text-gradient">Dev</span>Tech
+            <span className="text-gradient">TWIST</span>
           </div>
           
           <p className="text-sm text-muted-foreground">
