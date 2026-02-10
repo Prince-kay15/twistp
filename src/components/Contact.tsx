@@ -60,7 +60,7 @@ const Contact = () => {
                   </div>
                 </a>
 
-                <a href="https://wa.me/2349126249215" target="_blank" rel="noopener noreferrer" className="flex items-center gap-4 text-muted-foreground hover:text-primary transition-colors group">
+                <a href="https://wa.me/2349126249215?text=Hi%20my%20name%20is%20______.%20I'm%20reaching%20out%20for%20tech%20services%20including%20web%20or%20mobile%20development%2C%20software%20solutions%2C%20network%20setup%2C%20CCTV%20or%20telecom%20installation%2C%20or%20tech%20training.%20Please%20let%20me%20know%20how%20we%20can%20proceed" target="_blank" rel="noopener noreferrer" className="flex items-center gap-4 text-muted-foreground hover:text-primary transition-colors group">
                   <div className="p-3 rounded-xl bg-secondary group-hover:bg-primary/10 transition-colors">
                     <MessageCircle className="w-5 h-5" />
                   </div>
