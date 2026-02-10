@@ -1,4 +1,8 @@
 import { ExternalLink, Github } from "lucide-react";
+import webDevImg from "@/assets/web-dev.jpg";
+import cctvImg from "@/assets/cctv.jpg";
+import saasImg from "@/assets/saas-dashboard.jpg";
+import telecomImg from "@/assets/telecom.jpg";
 
 const projects = [
   {
@@ -6,37 +10,30 @@ const projects = [
     category: "Web Development",
     description: "Full-stack e-commerce solution with inventory management, payment processing, and real-time analytics dashboard.",
     tags: ["React", "Node.js", "PostgreSQL", "Stripe"],
-    image: "gradient-1",
+    image: webDevImg,
   },
   {
     title: "Corporate Security System",
     category: "CCTV Installation",
     description: "Complete security camera installation for a 50,000 sq ft corporate facility with 32 IP cameras and centralized monitoring.",
     tags: ["IP Cameras", "NVR", "Remote Access", "24/7 Recording"],
-    image: "gradient-2",
+    image: cctvImg,
   },
   {
     title: "SaaS Dashboard",
     category: "Software Engineering",
     description: "Analytics and reporting platform serving 10,000+ daily active users with real-time data visualization.",
     tags: ["TypeScript", "React", "GraphQL", "AWS"],
-    image: "gradient-3",
+    image: saasImg,
   },
   {
     title: "Office Network Infrastructure",
     category: "Telecom Installation",
     description: "Complete network infrastructure setup including structured cabling, VoIP phone system, and WiFi deployment.",
     tags: ["Cat6 Cabling", "VoIP", "WiFi 6", "Fiber Backbone"],
-    image: "gradient-4",
+    image: telecomImg,
   },
 ];
-
-const gradientClasses: Record<string, string> = {
-  "gradient-1": "from-primary/30 via-blue-600/20 to-purple-600/30",
-  "gradient-2": "from-emerald-600/30 via-teal-600/20 to-primary/30",
-  "gradient-3": "from-orange-600/30 via-rose-600/20 to-primary/30",
-  "gradient-4": "from-primary/30 via-indigo-600/20 to-violet-600/30",
-};
 
 const Projects = () => {
   return (
@@ -60,8 +57,14 @@ const Projects = () => {
               key={index}
               className="group glass-card rounded-2xl overflow-hidden hover:border-primary/30 transition-all duration-500"
             >
-              {/* Project Image/Gradient */}
-              <div className={`h-48 bg-gradient-to-br ${gradientClasses[project.image]} relative overflow-hidden`}>
+              {/* Project Image */}
+              <div className="h-48 relative overflow-hidden">
+                <img
+                  src={project.image}
+                  alt={project.title}
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  loading="lazy"
+                />
                 <div className="absolute inset-0 bg-gradient-to-t from-card to-transparent" />
                 
                 {/* Hover Actions */}

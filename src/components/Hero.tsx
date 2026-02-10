@@ -1,4 +1,4 @@
-import { ArrowDown, Code2, Shield, Wifi } from "lucide-react";
+import { Code2, Shield, Wifi } from "lucide-react";
 
 const Hero = () => {
   return (
@@ -70,13 +70,6 @@ const Hero = () => {
           </div>
         </div>
 
-        {/* Scroll Indicator */}
-        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-float">
-          <a href="#services" className="flex flex-col items-center gap-2 text-muted-foreground hover:text-primary transition-colors">
-            <span className="text-xs">Scroll</span>
-            <ArrowDown className="w-4 h-4" />
-          </a>
-        </div>
       </div>
     </section>
   );
