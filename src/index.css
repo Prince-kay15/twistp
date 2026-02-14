@@ -126,6 +126,18 @@
   .glow-line {
     @apply h-px w-full;
     background: linear-gradient(90deg, transparent 0%, hsl(var(--primary)) 50%, transparent 100%);
+    animation: glow-pulse 3s ease-in-out infinite;
+  }
+
+  @keyframes glow-pulse {
+    0%, 100% {
+      opacity: 0.3;
+      box-shadow: 0 0 8px hsl(var(--primary) / 0.2);
+    }
+    50% {
+      opacity: 1;
+      box-shadow: 0 0 20px hsl(var(--primary) / 0.6), 0 0 40px hsl(var(--primary) / 0.3);
+    }
   }
 }
 
