@@ -1,4 +1,4 @@
-import { ExternalLink, Github } from "lucide-react";
+import { ExternalLink } from "lucide-react";
 import webDevImg from "@/assets/web-dev.jpg";
 import cctvImg from "@/assets/cctv.jpg";
 import saasImg from "@/assets/saas-dashboard.jpg";
@@ -71,9 +71,6 @@ const Projects = () => {
                 <div className="absolute top-4 right-4 flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                   <button className="p-2.5 rounded-lg bg-background/80 backdrop-blur-sm hover:bg-primary hover:text-primary-foreground transition-colors">
                     <ExternalLink className="w-4 h-4" />
-                  </button>
-                  <button className="p-2.5 rounded-lg bg-background/80 backdrop-blur-sm hover:bg-primary hover:text-primary-foreground transition-colors">
-                    <Github className="w-4 h-4" />
                   </button>
                 </div>
 
