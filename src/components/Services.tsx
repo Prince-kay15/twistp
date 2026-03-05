@@ -1,8 +1,9 @@
-import { Code2, Cpu, Camera, Radio, ArrowUpRight } from "lucide-react";
+import { Code2, Cpu, Camera, Radio, GraduationCap, ArrowUpRight } from "lucide-react";
 import webDevImg from "@/assets/web-dev.jpg";
 import saasImg from "@/assets/saas-dashboard.jpg";
 import cctvImg from "@/assets/cctv.jpg";
 import telecomImg from "@/assets/telecom.jpg";
+import tutoringImg from "@/assets/tutoring.jpg";
 
 const services = [
   {
@@ -32,6 +33,13 @@ const services = [
     description: "Telecommunications infrastructure setup and maintenance. Network cabling, phone systems, and connectivity solutions.",
     features: ["Network Cabling", "VoIP Systems", "Fiber Optics", "Infrastructure"],
     image: telecomImg,
+  },
+  {
+    icon: GraduationCap,
+    title: "Full Stack Web Dev Tutoring",
+    description: "Personalized mentoring for aspiring developers. Learn to build complete web applications from frontend to backend.",
+    features: ["Frontend (HTML/CSS/JS)", "Backend & APIs", "Databases & Auth", "Full Stack Projects"],
+    image: tutoringImg,
   },
 ];
 

@@ -11,6 +11,7 @@ const Contact = () => {
     name: "",
     email: "",
     service: "",
+    tutoringType: "",
     message: "",
   });
 
@@ -30,7 +31,7 @@ const Contact = () => {
         description: "Thanks for reaching out. I'll get back to you soon!",
       });
 
-      setFormData({ name: "", email: "", service: "", message: "" });
+      setFormData({ name: "", email: "", service: "", tutoringType: "", message: "" });
     } catch (error) {
       console.error("Error sending message:", error);
       toast({
@@ -170,7 +171,7 @@ const Contact = () => {
                 <label className="text-sm text-muted-foreground mb-2 block">Service Interested In</label>
                 <select
                   value={formData.service}
-                  onChange={(e) => setFormData({ ...formData, service: e.target.value })}
+                  onChange={(e) => setFormData({ ...formData, service: e.target.value, tutoringType: "" })}
                   className="w-full px-4 py-3 bg-secondary border border-border rounded-xl focus:border-primary focus:outline-none transition-colors text-foreground"
                 >
                   <option value="">Select a service</option>
@@ -178,8 +179,26 @@ const Contact = () => {
                   <option value="software">Software Engineering</option>
                   <option value="cctv">CCTV Installation</option>
                   <option value="telecom">Telecom Installation</option>
+                  <option value="tutoring">Full Stack Web Dev Tutoring</option>
                 </select>
               </div>
+
+              {formData.service === "tutoring" && (
+                <div>
+                  <label className="text-sm text-muted-foreground mb-2 block">Tutoring Focus</label>
+                  <select
+                    value={formData.tutoringType}
+                    onChange={(e) => setFormData({ ...formData, tutoringType: e.target.value })}
+                    className="w-full px-4 py-3 bg-secondary border border-border rounded-xl focus:border-primary focus:outline-none transition-colors text-foreground"
+                    required
+                  >
+                    <option value="">Select tutoring focus</option>
+                    <option value="frontend">Frontend Only (HTML, CSS, JavaScript)</option>
+                    <option value="backend">Backend Only (Server Logic, APIs, Databases, Auth)</option>
+                    <option value="fullstack">Complete Full Stack</option>
+                  </select>
+                </div>
+              )}
 
               <div>
                 <label className="text-sm text-muted-foreground mb-2 block">Message</label>
