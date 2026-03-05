@@ -194,7 +194,7 @@ const Contact = () => {
                   >
                     <option value="">Select tutoring focus</option>
                     <option value="frontend">Frontend Only (HTML, CSS, JavaScript)</option>
-                    <option value="backend">Backend Only (Server Logic, APIs, Databases, Auth)</option>
+                    <option value="backend">Backend Only (PHP, Server Logic, APIs, Databases, Auth)</option>
                     <option value="fullstack">Complete Full Stack</option>
                   </select>
                 </div>
