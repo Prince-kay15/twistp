@@ -62,10 +62,10 @@ const Services = () => {
                 <img
                   src={service.image}
                   alt={service.title}
-                  className="w-full h-full object-cover opacity-20 group-hover:opacity-30 group-hover:scale-105 transition-all duration-700"
+                  className="w-full h-full object-cover opacity-40 group-hover:opacity-55 group-hover:scale-105 transition-all duration-700"
                   loading="lazy"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-background via-background/90 to-background/60" />
+                <div className="absolute inset-0 bg-gradient-to-t from-background via-background/70 to-background/30" />
               </div>
 
               <div className="relative z-10 p-8 flex flex-col justify-end h-full">
