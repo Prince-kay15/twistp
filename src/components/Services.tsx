@@ -4,6 +4,7 @@ import saasImg from "@/assets/saas-dashboard.jpg";
 import cctvImg from "@/assets/cctv.jpg";
 import telecomImg from "@/assets/telecom.jpg";
 import tutoringImg from "@/assets/tutoring.jpg";
+import contentImg from "@/assets/content-creation.jpg";
 
 const services = [
   {
