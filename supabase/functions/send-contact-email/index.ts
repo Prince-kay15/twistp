@@ -14,7 +14,7 @@ serve(async (req) => {
   }
 
   try {
-    const { name, email, service, tutoringType, message } = await req.json();
+    const { name, email, service, tutoringType, contentType, message } = await req.json();
 
     // Validate inputs
     if (!name || !email || !message) {
