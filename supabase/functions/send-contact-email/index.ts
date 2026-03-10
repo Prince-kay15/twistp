@@ -51,8 +51,17 @@ serve(async (req) => {
       fullstack: "Full Stack",
     };
 
+    const contentLabels: Record<string, string> = {
+      collaboration: "Collaboration",
+      sponsor: "Sponsor",
+      modeling: "Modeling",
+      brand_advert: "Brand Advert",
+      ambassadorship: "Ambassadorship",
+    };
+
     const serviceName = serviceLabels[service] || service || "Not specified";
     const tutoringName = tutoringType ? (tutoringLabels[tutoringType] || tutoringType) : null;
+    const contentName = contentType ? (contentLabels[contentType] || contentType) : null;
 
     const htmlContent = `
       <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px;">
