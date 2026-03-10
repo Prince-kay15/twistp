@@ -172,7 +172,7 @@ const Contact = () => {
                 <label className="text-sm text-muted-foreground mb-2 block">Service Interested In</label>
                 <select
                   value={formData.service}
-                  onChange={(e) => setFormData({ ...formData, service: e.target.value, tutoringType: "" })}
+                  onChange={(e) => setFormData({ ...formData, service: e.target.value, tutoringType: "", contentType: "" })}
                   className="w-full px-4 py-3 bg-secondary border border-border rounded-xl focus:border-primary focus:outline-none transition-colors text-foreground"
                 >
                   <option value="">Select a service</option>
