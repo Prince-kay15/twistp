@@ -12,6 +12,7 @@ const Contact = () => {
     email: "",
     service: "",
     tutoringType: "",
+    contentType: "",
     message: "",
   });
 
