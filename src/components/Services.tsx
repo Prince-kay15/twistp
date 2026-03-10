@@ -1,4 +1,4 @@
-import { Code2, Cpu, Camera, Radio, GraduationCap, ArrowUpRight } from "lucide-react";
+import { Code2, Cpu, Camera, Radio, GraduationCap, Palette, ArrowUpRight } from "lucide-react";
 import webDevImg from "@/assets/web-dev.jpg";
 import saasImg from "@/assets/saas-dashboard.jpg";
 import cctvImg from "@/assets/cctv.jpg";
