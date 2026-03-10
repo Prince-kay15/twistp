@@ -13,6 +13,7 @@ const services = [
     description: "Custom websites and web applications built with modern technologies. Responsive, fast, and optimized for conversions.",
     features: ["React & Next.js", "Full-Stack Solutions", "E-commerce", "CMS Integration"],
     image: webDevImg,
+    link: "https://estate-cyan-ten.vercel.app/",
   },
   {
     icon: Cpu,
