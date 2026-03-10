@@ -1,4 +1,4 @@
-import { Code2, Cpu, Camera, Radio, GraduationCap, ArrowUpRight } from "lucide-react";
+import { Code2, Cpu, Camera, Radio, GraduationCap, Palette, ArrowUpRight } from "lucide-react";
 import webDevImg from "@/assets/web-dev.jpg";
 import saasImg from "@/assets/saas-dashboard.jpg";
 import cctvImg from "@/assets/cctv.jpg";
@@ -40,6 +40,13 @@ const services = [
     description: "Personalized mentoring for aspiring developers. Learn to build complete web applications from frontend to backend.",
     features: ["Frontend (HTML/CSS/JS)", "Backend & APIs", "Databases & Auth", "Full Stack Projects"],
     image: tutoringImg,
+  },
+  {
+    icon: Palette,
+    title: "Content Creation",
+    description: "Engaging digital content for your brand. From video editing and graphic design to social media management and copywriting.",
+    features: ["Video Editing", "Graphic Design", "Social Media", "SEO & Copywriting"],
+    image: webDevImg,
   },
 ];
 

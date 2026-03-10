@@ -42,6 +42,7 @@ serve(async (req) => {
       cctv: "CCTV Installation",
       telecom: "Telecom Installation",
       tutoring: "Full Stack Web Dev Tutoring",
+      content: "Content Creation",
     };
 
     const tutoringLabels: Record<string, string> = {

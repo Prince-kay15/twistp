@@ -12,6 +12,10 @@ const skillCategories = [
     skills: ["Git", "Docker", "AWS", "CI/CD", "Linux"],
   },
   {
+    title: "Content Creation",
+    skills: ["Video Editing", "Graphic Design", "Social Media", "Copywriting", "SEO"],
+  },
+  {
     title: "Hardware & Systems",
     skills: ["IP Cameras", "DVR/NVR", "Network Design", "VoIP", "Fiber Optics"],
   },
