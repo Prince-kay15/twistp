@@ -41,6 +41,13 @@ const services = [
     features: ["Frontend (HTML/CSS/JS)", "Backend & APIs", "Databases & Auth", "Full Stack Projects"],
     image: tutoringImg,
   },
+  {
+    icon: Palette,
+    title: "Content Creation",
+    description: "Engaging digital content for your brand. From video editing and graphic design to social media management and copywriting.",
+    features: ["Video Editing", "Graphic Design", "Social Media", "SEO & Copywriting"],
+    image: webDevImg,
+  },
 ];
 
 const Services = () => {
