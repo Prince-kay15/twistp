@@ -73,6 +73,7 @@ serve(async (req) => {
           <p><strong>Email:</strong> ${email}</p>
           <p><strong>Service:</strong> ${serviceName}</p>
           ${tutoringName ? `<p><strong>Tutoring Focus:</strong> ${tutoringName}</p>` : ""}
+          ${contentName ? `<p><strong>Content Type:</strong> ${contentName}</p>` : ""}
         </div>
         <div style="background: #f3f4f6; padding: 15px; border-radius: 8px;">
           <p><strong>Message:</strong></p>
