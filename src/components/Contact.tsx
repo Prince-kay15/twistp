@@ -12,6 +12,7 @@ const Contact = () => {
     email: "",
     service: "",
     tutoringType: "",
+    contentType: "",
     message: "",
   });
 
@@ -31,7 +32,7 @@ const Contact = () => {
         description: "Thanks for reaching out. I'll get back to you soon!",
       });
 
-      setFormData({ name: "", email: "", service: "", tutoringType: "", message: "" });
+      setFormData({ name: "", email: "", service: "", tutoringType: "", contentType: "", message: "" });
     } catch (error) {
       console.error("Error sending message:", error);
       toast({
@@ -171,7 +172,7 @@ const Contact = () => {
                 <label className="text-sm text-muted-foreground mb-2 block">Service Interested In</label>
                 <select
                   value={formData.service}
-                  onChange={(e) => setFormData({ ...formData, service: e.target.value, tutoringType: "" })}
+                  onChange={(e) => setFormData({ ...formData, service: e.target.value, tutoringType: "", contentType: "" })}
                   className="w-full px-4 py-3 bg-secondary border border-border rounded-xl focus:border-primary focus:outline-none transition-colors text-foreground"
                 >
                   <option value="">Select a service</option>
@@ -197,6 +198,25 @@ const Contact = () => {
                     <option value="frontend">Frontend Only (HTML, CSS, JavaScript)</option>
                     <option value="backend">Backend Only (PHP, Server Logic, APIs, Databases, Auth)</option>
                     <option value="fullstack">Complete Full Stack</option>
+                  </select>
+                </div>
+              )}
+
+              {formData.service === "content" && (
+                <div>
+                  <label className="text-sm text-muted-foreground mb-2 block">Content Type</label>
+                  <select
+                    value={formData.contentType}
+                    onChange={(e) => setFormData({ ...formData, contentType: e.target.value })}
+                    className="w-full px-4 py-3 bg-secondary border border-border rounded-xl focus:border-primary focus:outline-none transition-colors text-foreground"
+                    required
+                  >
+                    <option value="">Select content type</option>
+                    <option value="collaboration">Collaboration</option>
+                    <option value="sponsor">Sponsor</option>
+                    <option value="modeling">Modeling</option>
+                    <option value="brand_advert">Brand Advert</option>
+                    <option value="ambassadorship">Ambassadorship</option>
                   </select>
                 </div>
               )}

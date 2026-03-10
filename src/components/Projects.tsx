@@ -3,6 +3,7 @@ import webDevImg from "@/assets/web-dev.jpg";
 import cctvImg from "@/assets/cctv.jpg";
 import saasImg from "@/assets/saas-dashboard.jpg";
 import telecomImg from "@/assets/telecom.jpg";
+import contentImg from "@/assets/content-creation.jpg";
 
 const projects = [
   {
@@ -32,6 +33,13 @@ const projects = [
     description: "Complete network infrastructure setup including structured cabling, VoIP phone system, and WiFi deployment.",
     tags: ["Cat6 Cabling", "VoIP", "WiFi 6", "Fiber Backbone"],
     image: telecomImg,
+  },
+  {
+    title: "Brand Campaign & Content Production",
+    category: "Content Creation",
+    description: "End-to-end content production for brand campaigns including video shoots, social media strategy, and talent collaboration.",
+    tags: ["Video Production", "Social Media", "Acting", "Brand Partnerships"],
+    image: contentImg,
   },
 ];
 

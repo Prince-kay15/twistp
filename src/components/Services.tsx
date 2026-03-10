@@ -4,6 +4,7 @@ import saasImg from "@/assets/saas-dashboard.jpg";
 import cctvImg from "@/assets/cctv.jpg";
 import telecomImg from "@/assets/telecom.jpg";
 import tutoringImg from "@/assets/tutoring.jpg";
+import contentImg from "@/assets/content-creation.jpg";
 
 const services = [
   {
@@ -46,7 +47,7 @@ const services = [
     title: "Content Creation",
     description: "Creative content production including video creation, social media management, and acting. Bringing stories to life across digital platforms and film.",
     features: ["Video Production", "Social Media Management", "Acting & Film", "Digital Content"],
-    image: webDevImg,
+    image: contentImg,
   },
 ];
 

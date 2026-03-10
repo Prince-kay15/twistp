@@ -14,7 +14,7 @@ serve(async (req) => {
   }
 
   try {
-    const { name, email, service, tutoringType, message } = await req.json();
+    const { name, email, service, tutoringType, contentType, message } = await req.json();
 
     // Validate inputs
     if (!name || !email || !message) {
@@ -51,8 +51,17 @@ serve(async (req) => {
       fullstack: "Full Stack",
     };
 
+    const contentLabels: Record<string, string> = {
+      collaboration: "Collaboration",
+      sponsor: "Sponsor",
+      modeling: "Modeling",
+      brand_advert: "Brand Advert",
+      ambassadorship: "Ambassadorship",
+    };
+
     const serviceName = serviceLabels[service] || service || "Not specified";
     const tutoringName = tutoringType ? (tutoringLabels[tutoringType] || tutoringType) : null;
+    const contentName = contentType ? (contentLabels[contentType] || contentType) : null;
 
     const htmlContent = `
       <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px;">
@@ -64,6 +73,7 @@ serve(async (req) => {
           <p><strong>Email:</strong> ${email}</p>
           <p><strong>Service:</strong> ${serviceName}</p>
           ${tutoringName ? `<p><strong>Tutoring Focus:</strong> ${tutoringName}</p>` : ""}
+          ${contentName ? `<p><strong>Content Type:</strong> ${contentName}</p>` : ""}
         </div>
         <div style="background: #f3f4f6; padding: 15px; border-radius: 8px;">
           <p><strong>Message:</strong></p>
