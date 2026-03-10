@@ -3,6 +3,7 @@ import webDevImg from "@/assets/web-dev.jpg";
 import cctvImg from "@/assets/cctv.jpg";
 import saasImg from "@/assets/saas-dashboard.jpg";
 import telecomImg from "@/assets/telecom.jpg";
+import contentImg from "@/assets/content-creation.jpg";
 
 const projects = [
   {
