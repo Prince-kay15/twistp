@@ -13,6 +13,7 @@ const services = [
     description: "Custom websites and web applications built with modern technologies. Responsive, fast, and optimized for conversions.",
     features: ["React & Next.js", "Full-Stack Solutions", "E-commerce", "CMS Integration"],
     image: webDevImg,
+    link: "https://estate-cyan-ten.vercel.app/",
   },
   {
     icon: Cpu,
@@ -68,53 +69,58 @@ const Services = () => {
 
         {/* Services Grid */}
         <div className="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto">
-          {services.map((service, index) => (
-            <div
-              key={index}
-              className="group glass-card rounded-2xl overflow-hidden hover:border-primary/30 transition-all duration-500 relative min-h-[340px]"
-            >
-              {/* Background Image */}
-              <div className="absolute inset-0">
-                <img
-                  src={service.image}
-                  alt={service.title}
-                  className="w-full h-full object-cover opacity-40 group-hover:opacity-55 group-hover:scale-105 transition-all duration-700"
-                  loading="lazy"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-background via-background/70 to-background/30" />
-              </div>
-
-              <div className="relative z-10 p-8 flex flex-col justify-end h-full">
-                {/* Icon */}
-                <div className="w-14 h-14 rounded-xl bg-primary/10 backdrop-blur-sm flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
-                  <service.icon className="w-7 h-7 text-primary" />
+          {services.map((service, index) => {
+            const Wrapper = service.link ? 'a' : 'div';
+            const wrapperProps = service.link ? { href: service.link, target: "_blank", rel: "noopener noreferrer" } : {};
+            return (
+              <Wrapper
+                key={index}
+                {...wrapperProps}
+                className="group glass-card rounded-2xl overflow-hidden hover:border-primary/30 transition-all duration-500 relative min-h-[340px] block"
+              >
+                {/* Background Image */}
+                <div className="absolute inset-0">
+                  <img
+                    src={service.image}
+                    alt={service.title}
+                    className="w-full h-full object-cover opacity-40 group-hover:opacity-55 group-hover:scale-105 transition-all duration-700"
+                    loading="lazy"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-background via-background/70 to-background/30" />
                 </div>
 
-                {/* Title */}
-                <div className="flex items-center justify-between mb-4">
-                  <h3 className="text-xl font-semibold font-display">{service.title}</h3>
-                  <ArrowUpRight className="w-5 h-5 text-muted-foreground group-hover:text-primary group-hover:translate-x-1 group-hover:-translate-y-1 transition-all" />
-                </div>
+                <div className="relative z-10 p-8 flex flex-col justify-end h-full">
+                  {/* Icon */}
+                  <div className="w-14 h-14 rounded-xl bg-primary/10 backdrop-blur-sm flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                    <service.icon className="w-7 h-7 text-primary" />
+                  </div>
 
-                {/* Description */}
-                <p className="text-muted-foreground mb-6 leading-relaxed">
-                  {service.description}
-                </p>
+                  {/* Title */}
+                  <div className="flex items-center justify-between mb-4">
+                    <h3 className="text-xl font-semibold font-display">{service.title}</h3>
+                    <ArrowUpRight className="w-5 h-5 text-muted-foreground group-hover:text-primary group-hover:translate-x-1 group-hover:-translate-y-1 transition-all" />
+                  </div>
 
-                {/* Features */}
-                <div className="flex flex-wrap gap-2">
-                  {service.features.map((feature, featureIndex) => (
-                    <span
-                      key={featureIndex}
-                      className="px-3 py-1.5 text-xs font-medium bg-secondary/80 backdrop-blur-sm rounded-lg text-muted-foreground"
-                    >
-                      {feature}
-                    </span>
-                  ))}
+                  {/* Description */}
+                  <p className="text-muted-foreground mb-6 leading-relaxed">
+                    {service.description}
+                  </p>
+
+                  {/* Features */}
+                  <div className="flex flex-wrap gap-2">
+                    {service.features.map((feature, featureIndex) => (
+                      <span
+                        key={featureIndex}
+                        className="px-3 py-1.5 text-xs font-medium bg-secondary/80 backdrop-blur-sm rounded-lg text-muted-foreground"
+                      >
+                        {feature}
+                      </span>
+                    ))}
+                  </div>
                 </div>
-              </div>
-            </div>
-          ))}
+              </Wrapper>
+            );
+          })}
         </div>
       </div>
     </section>

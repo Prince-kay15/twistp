@@ -12,6 +12,7 @@ const projects = [
     description: "Full-stack e-commerce solution with inventory management, payment processing, and real-time analytics dashboard.",
     tags: ["React", "Node.js", "PostgreSQL", "Stripe"],
     image: webDevImg,
+    link: "https://estate-cyan-ten.vercel.app/",
   },
   {
     title: "Corporate Security System",
@@ -60,57 +61,62 @@ const Projects = () => {
 
         {/* Projects Grid */}
         <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-          {projects.map((project, index) => (
-            <div
-              key={index}
-              className="group glass-card rounded-2xl overflow-hidden hover:border-primary/30 transition-all duration-500"
-            >
-              {/* Project Image */}
-              <div className="h-48 relative overflow-hidden">
-                <img
-                  src={project.image}
-                  alt={project.title}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                  loading="lazy"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-card to-transparent" />
-                
-                {/* Hover Actions */}
-                <div className="absolute top-4 right-4 flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <button className="p-2.5 rounded-lg bg-background/80 backdrop-blur-sm hover:bg-primary hover:text-primary-foreground transition-colors">
-                    <ExternalLink className="w-4 h-4" />
-                  </button>
-                </div>
-
-                {/* Category Badge */}
-                <div className="absolute bottom-4 left-4">
-                  <span className="px-3 py-1.5 text-xs font-medium bg-background/80 backdrop-blur-sm rounded-lg">
-                    {project.category}
-                  </span>
-                </div>
-              </div>
-
-              {/* Project Info */}
-              <div className="p-6">
-                <h3 className="text-xl font-semibold font-display mb-3 group-hover:text-primary transition-colors">
-                  {project.title}
-                </h3>
-                <p className="text-muted-foreground text-sm mb-4 leading-relaxed">
-                  {project.description}
-                </p>
-                <div className="flex flex-wrap gap-2">
-                  {project.tags.map((tag, tagIndex) => (
-                    <span
-                      key={tagIndex}
-                      className="px-2.5 py-1 text-xs font-medium bg-secondary rounded-md text-muted-foreground"
-                    >
-                      {tag}
+          {projects.map((project, index) => {
+            const Wrapper = project.link ? 'a' : 'div';
+            const wrapperProps = project.link ? { href: project.link, target: "_blank", rel: "noopener noreferrer" } : {};
+            return (
+              <Wrapper
+                key={index}
+                {...wrapperProps}
+                className="group glass-card rounded-2xl overflow-hidden hover:border-primary/30 transition-all duration-500 block"
+              >
+                {/* Project Image */}
+                <div className="h-48 relative overflow-hidden">
+                  <img
+                    src={project.image}
+                    alt={project.title}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    loading="lazy"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-card to-transparent" />
+                  
+                  {/* Hover Actions */}
+                  <div className="absolute top-4 right-4 flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <span className="p-2.5 rounded-lg bg-background/80 backdrop-blur-sm hover:bg-primary hover:text-primary-foreground transition-colors">
+                      <ExternalLink className="w-4 h-4" />
                     </span>
-                  ))}
+                  </div>
+
+                  {/* Category Badge */}
+                  <div className="absolute bottom-4 left-4">
+                    <span className="px-3 py-1.5 text-xs font-medium bg-background/80 backdrop-blur-sm rounded-lg">
+                      {project.category}
+                    </span>
+                  </div>
                 </div>
-              </div>
-            </div>
-          ))}
+
+                {/* Project Info */}
+                <div className="p-6">
+                  <h3 className="text-xl font-semibold font-display mb-3 group-hover:text-primary transition-colors">
+                    {project.title}
+                  </h3>
+                  <p className="text-muted-foreground text-sm mb-4 leading-relaxed">
+                    {project.description}
+                  </p>
+                  <div className="flex flex-wrap gap-2">
+                    {project.tags.map((tag, tagIndex) => (
+                      <span
+                        key={tagIndex}
+                        className="px-2.5 py-1 text-xs font-medium bg-secondary rounded-md text-muted-foreground"
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              </Wrapper>
+            );
+          })}
         </div>
       </div>
     </section>
