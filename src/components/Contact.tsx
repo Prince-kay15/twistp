@@ -180,6 +180,7 @@ const Contact = () => {
                   <option value="cctv">CCTV Installation</option>
                   <option value="telecom">Telecom Installation</option>
                   <option value="tutoring">Full Stack Web Dev Tutoring</option>
+                  <option value="content">Content Creation</option>
                 </select>
               </div>
 
