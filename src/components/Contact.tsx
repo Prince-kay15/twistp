@@ -32,7 +32,7 @@ const Contact = () => {
         description: "Thanks for reaching out. I'll get back to you soon!",
       });
 
-      setFormData({ name: "", email: "", service: "", tutoringType: "", message: "" });
+      setFormData({ name: "", email: "", service: "", tutoringType: "", contentType: "", message: "" });
     } catch (error) {
       console.error("Error sending message:", error);
       toast({
