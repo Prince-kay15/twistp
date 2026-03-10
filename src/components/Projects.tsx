@@ -12,6 +12,7 @@ const projects = [
     description: "Full-stack e-commerce solution with inventory management, payment processing, and real-time analytics dashboard.",
     tags: ["React", "Node.js", "PostgreSQL", "Stripe"],
     image: webDevImg,
+    link: "https://estate-cyan-ten.vercel.app/",
   },
   {
     title: "Corporate Security System",
