@@ -34,6 +34,13 @@ const projects = [
     tags: ["Cat6 Cabling", "VoIP", "WiFi 6", "Fiber Backbone"],
     image: telecomImg,
   },
+  {
+    title: "Brand Campaign & Content Production",
+    category: "Content Creation",
+    description: "End-to-end content production for brand campaigns including video shoots, social media strategy, and talent collaboration.",
+    tags: ["Video Production", "Social Media", "Acting", "Brand Partnerships"],
+    image: contentImg,
+  },
 ];
 
 const Projects = () => {

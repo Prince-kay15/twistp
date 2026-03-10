@@ -202,6 +202,25 @@ const Contact = () => {
                 </div>
               )}
 
+              {formData.service === "content" && (
+                <div>
+                  <label className="text-sm text-muted-foreground mb-2 block">Content Type</label>
+                  <select
+                    value={formData.contentType}
+                    onChange={(e) => setFormData({ ...formData, contentType: e.target.value })}
+                    className="w-full px-4 py-3 bg-secondary border border-border rounded-xl focus:border-primary focus:outline-none transition-colors text-foreground"
+                    required
+                  >
+                    <option value="">Select content type</option>
+                    <option value="collaboration">Collaboration</option>
+                    <option value="sponsor">Sponsor</option>
+                    <option value="modeling">Modeling</option>
+                    <option value="brand_advert">Brand Advert</option>
+                    <option value="ambassadorship">Ambassadorship</option>
+                  </select>
+                </div>
+              )}
+
               <div>
                 <label className="text-sm text-muted-foreground mb-2 block">Message</label>
                 <textarea
