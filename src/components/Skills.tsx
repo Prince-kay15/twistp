@@ -13,7 +13,7 @@ const skillCategories = [
   },
   {
     title: "Content Creation",
-    skills: ["Video Editing", "Graphic Design", "Social Media", "Copywriting", "SEO"],
+    skills: ["Video Production", "Video Editing", "Social Media Management", "Acting & Film", "Digital Content"],
   },
   {
     title: "Hardware & Systems",

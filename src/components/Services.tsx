@@ -44,8 +44,8 @@ const services = [
   {
     icon: Palette,
     title: "Content Creation",
-    description: "Engaging digital content for your brand. From video editing and graphic design to social media management and copywriting.",
-    features: ["Video Editing", "Graphic Design", "Social Media", "SEO & Copywriting"],
+    description: "Creative content production including video creation, social media management, and acting. Bringing stories to life across digital platforms and film.",
+    features: ["Video Production", "Social Media Management", "Acting & Film", "Digital Content"],
     image: webDevImg,
   },
 ];
