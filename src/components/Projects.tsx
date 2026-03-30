@@ -41,6 +41,7 @@ const projects = [
     description: "End-to-end content production for brand campaigns including video shoots, social media strategy, and talent collaboration.",
     tags: ["Video Production", "Social Media", "Acting", "Brand Partnerships"],
     image: contentImg,
+    link: "https://www.tiktok.com/@exetwist",
   },
 ];
 

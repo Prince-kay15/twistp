@@ -49,6 +49,7 @@ const services = [
     description: "Creative content production including video creation, social media management, and acting. Bringing stories to life across digital platforms and film.",
     features: ["Video Production", "Social Media Management", "Acting & Film", "Digital Content"],
     image: contentImg,
+    link: "https://www.tiktok.com/@exetwist",
   },
 ];
 
