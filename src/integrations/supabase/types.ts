@@ -14,16 +14,116 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      bookings: {
+        Row: {
+          admin_notes: string | null
+          approval_token: string
+          created_at: string
+          duration_minutes: number
+          email: string
+          id: string
+          message: string | null
+          name: string
+          scheduled_at: string
+          status: string
+          timezone: string
+          topic: string | null
+          updated_at: string
+          zoom_join_url: string | null
+          zoom_meeting_id: string | null
+          zoom_start_url: string | null
+        }
+        Insert: {
+          admin_notes?: string | null
+          approval_token?: string
+          created_at?: string
+          duration_minutes?: number
+          email: string
+          id?: string
+          message?: string | null
+          name: string
+          scheduled_at: string
+          status?: string
+          timezone?: string
+          topic?: string | null
+          updated_at?: string
+          zoom_join_url?: string | null
+          zoom_meeting_id?: string | null
+          zoom_start_url?: string | null
+        }
+        Update: {
+          admin_notes?: string | null
+          approval_token?: string
+          created_at?: string
+          duration_minutes?: number
+          email?: string
+          id?: string
+          message?: string | null
+          name?: string
+          scheduled_at?: string
+          status?: string
+          timezone?: string
+          topic?: string | null
+          updated_at?: string
+          zoom_join_url?: string | null
+          zoom_meeting_id?: string | null
+          zoom_start_url?: string | null
+        }
+        Relationships: []
+      }
+      user_roles: {
+        Row: {
+          created_at: string
+          id: string
+          role: Database["public"]["Enums"]["app_role"]
+          user_id: string
+        }
+        Insert: {
+          created_at?: string
+          id?: string
+          role: Database["public"]["Enums"]["app_role"]
+          user_id: string
+        }
+        Update: {
+          created_at?: string
+          id?: string
+          role?: Database["public"]["Enums"]["app_role"]
+          user_id?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
-      [_ in never]: never
+      booked_slots: {
+        Row: {
+          duration_minutes: number | null
+          scheduled_at: string | null
+          status: string | null
+        }
+        Insert: {
+          duration_minutes?: number | null
+          scheduled_at?: string | null
+          status?: string | null
+        }
+        Update: {
+          duration_minutes?: number | null
+          scheduled_at?: string | null
+          status?: string | null
+        }
+        Relationships: []
+      }
     }
     Functions: {
-      [_ in never]: never
+      has_role: {
+        Args: {
+          _role: Database["public"]["Enums"]["app_role"]
+          _user_id: string
+        }
+        Returns: boolean
+      }
     }
     Enums: {
-      [_ in never]: never
+      app_role: "admin" | "user"
     }
     CompositeTypes: {
       [_ in never]: never
@@ -150,6 +250,8 @@ export type CompositeTypes<
 
 export const Constants = {
   public: {
-    Enums: {},
+    Enums: {
+      app_role: ["admin", "user"],
+    },
   },
 } as const
