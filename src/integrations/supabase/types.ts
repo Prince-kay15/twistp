@@ -94,26 +94,16 @@ export type Database = {
       }
     }
     Views: {
-      booked_slots: {
-        Row: {
-          duration_minutes: number | null
-          scheduled_at: string | null
-          status: string | null
-        }
-        Insert: {
-          duration_minutes?: number | null
-          scheduled_at?: string | null
-          status?: string | null
-        }
-        Update: {
-          duration_minutes?: number | null
-          scheduled_at?: string | null
-          status?: string | null
-        }
-        Relationships: []
-      }
+      [_ in never]: never
     }
     Functions: {
+      get_booked_slots: {
+        Args: never
+        Returns: {
+          duration_minutes: number
+          scheduled_at: string
+        }[]
+      }
       has_role: {
         Args: {
           _role: Database["public"]["Enums"]["app_role"]
