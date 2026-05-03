@@ -156,7 +156,7 @@ serve(async (req) => {
 function htmlResponse(body: string, status = 200) {
   return new Response(
     `<!doctype html><html><head><meta charset="utf-8"><title>Booking</title><meta name="viewport" content="width=device-width,initial-scale=1"><style>body{font-family:system-ui,-apple-system,sans-serif;background:#0a0a0a;color:#e5e5e5;display:flex;align-items:center;justify-content:center;min-height:100vh;margin:0;padding:20px;}.card{background:#1a1a1a;border:1px solid #333;border-radius:12px;padding:40px;max-width:500px;text-align:center;}</style></head><body><div class="card">${body}</div></body></html>`,
-    { status, headers: { "Content-Type": "text/html; charset=utf-8" } }
+    { status, headers: { ...corsHeaders, "Content-Type": "text/html; charset=utf-8" } }
   );
 }
 function escapeHtml(s: string) {
