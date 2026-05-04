@@ -15,10 +15,7 @@ serve(async (req) => {
     const body = await req.json();
     const { name, email, topic, message, scheduled_at, timezone } = body ?? {};
 
-    // Validation
-    if (!name || !email || !scheduled_at) {
-      return json({ error: "Name, email, and time are required" }, 400);
-    }
+    if (!name || !email || !scheduled_at) return json({ error: "Name, email, and time are required" }, 400);
     if (typeof name !== "string" || name.length > 100) return json({ error: "Invalid name" }, 400);
     if (typeof email !== "string" || email.length > 255 || !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)) {
       return json({ error: "Invalid email" }, 400);
@@ -36,7 +33,7 @@ serve(async (req) => {
       Deno.env.get("SUPABASE_SERVICE_ROLE_KEY")!
     );
 
-    // Check slot is still free
+    // Prevent double booking
     const { data: existing } = await supabase
       .from("bookings")
       .select("id")
@@ -55,7 +52,7 @@ serve(async (req) => {
         scheduled_at: when.toISOString(),
         timezone: timezone || "UTC",
       })
-      .select("id, approval_token, scheduled_at, name, email, topic, message, timezone")
+      .select("id, scheduled_at, name, email, topic, message, timezone")
       .single();
 
     if (error) {
@@ -66,31 +63,23 @@ serve(async (req) => {
       return json({ error: "Could not save booking" }, 500);
     }
 
-    // Send admin notification with approve/decline links
+    // Best-effort admin notification (Resend test sender works for admin's own verified email).
+    // Failures here do NOT block the user-facing success response.
     const RESEND_API_KEY = Deno.env.get("RESEND_API_KEY");
     const origin = req.headers.get("origin") || "https://twistp.lovable.app";
-    const projectUrl = Deno.env.get("SUPABASE_URL")!;
-    const approveUrl = `${projectUrl}/functions/v1/manage-booking?id=${booking.id}&token=${booking.approval_token}&action=accept`;
-    const declineUrl = `${projectUrl}/functions/v1/manage-booking?id=${booking.id}&token=${booking.approval_token}&action=decline`;
-
     if (RESEND_API_KEY) {
       const dt = new Date(booking.scheduled_at);
       const html = `
         <div style="font-family: Arial, sans-serif; max-width:600px; margin:0 auto; padding:20px;">
           <h2 style="color:#06b6d4;">📅 New Booking Request</h2>
-          <p><strong>${escapeHtml(booking.name)}</strong> (${escapeHtml(booking.email)}) requested a Zoom session.</p>
+          <p><strong>${escapeHtml(booking.name)}</strong> (${escapeHtml(booking.email)}) requested a session.</p>
           <p><strong>Time:</strong> ${dt.toUTCString()}<br/>
              <strong>Their timezone:</strong> ${escapeHtml(booking.timezone || "UTC")}</p>
           ${booking.topic ? `<p><strong>Topic:</strong> ${escapeHtml(booking.topic)}</p>` : ""}
           ${booking.message ? `<p><strong>Message:</strong><br/>${escapeHtml(booking.message).replace(/\n/g, "<br/>")}</p>` : ""}
-          <div style="margin:30px 0;">
-            <a href="${approveUrl}" style="display:inline-block;background:#10b981;color:#fff;padding:12px 24px;border-radius:8px;text-decoration:none;font-weight:bold;margin-right:10px;">✓ Accept & Create Zoom</a>
-            <a href="${declineUrl}" style="display:inline-block;background:#ef4444;color:#fff;padding:12px 24px;border-radius:8px;text-decoration:none;font-weight:bold;">✗ Decline</a>
-          </div>
-          <p style="color:#666;font-size:12px;">Or manage from your <a href="${origin}/admin">admin dashboard</a>.</p>
+          <p style="margin-top:24px;">Open your <a href="${origin}/admin">admin dashboard</a> to accept (with a meeting link) or decline.</p>
         </div>`;
-
-      await fetch("https://api.resend.com/emails", {
+      fetch("https://api.resend.com/emails", {
         method: "POST",
         headers: { "Content-Type": "application/json", Authorization: `Bearer ${RESEND_API_KEY}` },
         body: JSON.stringify({
