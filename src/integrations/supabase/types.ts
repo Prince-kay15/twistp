@@ -22,6 +22,7 @@ export type Database = {
           duration_minutes: number
           email: string
           id: string
+          meeting_link: string | null
           message: string | null
           name: string
           scheduled_at: string
@@ -40,6 +41,7 @@ export type Database = {
           duration_minutes?: number
           email: string
           id?: string
+          meeting_link?: string | null
           message?: string | null
           name: string
           scheduled_at: string
@@ -58,6 +60,7 @@ export type Database = {
           duration_minutes?: number
           email?: string
           id?: string
+          meeting_link?: string | null
           message?: string | null
           name?: string
           scheduled_at?: string
