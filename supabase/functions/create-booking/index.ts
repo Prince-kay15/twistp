@@ -22,8 +22,30 @@ serve(async (req) => {
     }
     const when = new Date(scheduled_at);
     if (isNaN(when.getTime())) return json({ error: "Invalid date" }, 400);
-    if (when.getTime() < Date.now() + 5 * 60 * 1000) {
-      return json({ error: "Please pick a slot at least 5 minutes from now" }, 400);
+
+    // Timezone-aware lead-time validation.
+    // Comparison itself is always done as absolute UTC instants (Date.getTime()),
+    // which is timezone-agnostic and correct regardless of where the user is.
+    // We only use the user's IANA timezone to format human-readable error messages
+    // so they see times in their own local clock instead of UTC.
+    const userTz = typeof timezone === "string" && timezone ? timezone : "UTC";
+    const MIN_LEAD_MS = 5 * 60 * 1000;
+    const earliest = Date.now() + MIN_LEAD_MS;
+    if (when.getTime() < earliest) {
+      const fmt = (ms: number) => {
+        try {
+          return new Intl.DateTimeFormat("en-US", {
+            timeZone: userTz,
+            dateStyle: "medium",
+            timeStyle: "short",
+          }).format(new Date(ms));
+        } catch {
+          return new Date(ms).toUTCString();
+        }
+      };
+      return json({
+        error: `Please pick a slot at least 5 minutes from now. Earliest available: ${fmt(earliest)} (${userTz}). You picked: ${fmt(when.getTime())}.`,
+      }, 400);
     }
     if (topic && (typeof topic !== "string" || topic.length > 200)) return json({ error: "Invalid topic" }, 400);
     if (message && (typeof message !== "string" || message.length > 2000)) return json({ error: "Message too long" }, 400);
