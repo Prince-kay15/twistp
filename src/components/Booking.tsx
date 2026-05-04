@@ -127,7 +127,7 @@ const Booking = () => {
             Book a <span className="text-gradient">Zoom Session</span>
           </h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-            Schedule a 30-minute call. You'll get a Zoom link by email after I confirm.
+            Schedule a 30-minute call. You'll receive a meeting link once I confirm your request.
           </p>
           <p className="text-xs text-muted-foreground mt-2">Times shown in your timezone: {tz}</p>
         </div>
@@ -137,7 +137,7 @@ const Booking = () => {
             <div className="text-5xl mb-4">📨</div>
             <h3 className="font-display text-2xl font-bold mb-2">Request sent!</h3>
             <p className="text-muted-foreground mb-6">
-              I'll review your request and email you a Zoom link as soon as it's confirmed.
+              Your booking is saved. I'll review it and send you the meeting link as soon as it's confirmed.
             </p>
             <Button onClick={() => setSuccess(false)} variant="outline">Book another</Button>
           </div>
@@ -240,7 +240,7 @@ const Booking = () => {
                 Request Session
               </Button>
               <p className="text-xs text-muted-foreground text-center">
-                You'll receive the Zoom link by email once the request is approved.
+                You'll receive a meeting link by email once the request is approved.
               </p>
             </form>
           </div>
