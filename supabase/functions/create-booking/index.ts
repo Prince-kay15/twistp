@@ -74,7 +74,7 @@ serve(async (req) => {
         scheduled_at: when.toISOString(),
         timezone: timezone || "UTC",
       })
-      .select("id, scheduled_at, name, email, topic, message, timezone")
+      .select("id, scheduled_at, name, email, topic, message, timezone, approval_token")
       .single();
 
     if (error) {
@@ -114,7 +114,7 @@ serve(async (req) => {
       }).catch((e) => console.error("Admin email failed:", e));
     }
 
-    return json({ success: true, id: booking.id });
+    return json({ success: true, id: booking.id, approval_token: (booking as any).approval_token });
   } catch (e) {
     console.error("create-booking error:", e);
     return json({ error: "Server error" }, 500);
