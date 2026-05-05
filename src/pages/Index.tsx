@@ -3,8 +3,7 @@ import Hero from "@/components/Hero";
 import Services from "@/components/Services";
 import Skills from "@/components/Skills";
 import Projects from "@/components/Projects";
-import Booking from "@/components/Booking";
-import Contact from "@/components/Contact";
+import ContactAndBooking from "@/components/ContactAndBooking";
 import Footer from "@/components/Footer";
 
 const Index = () => {
@@ -16,11 +15,10 @@ const Index = () => {
       <Services />
       <Skills />
       <div className="glow-line" />
-      <Projects />
-      <div className="glow-line" />
-      <Booking />
-      <Contact />
-      <Footer />
+        <Projects />
+        <div className="glow-line" />
+        <ContactAndBooking />
+        <Footer />
     </div>
   );
 };
