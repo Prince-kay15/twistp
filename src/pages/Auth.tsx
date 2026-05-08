@@ -47,8 +47,8 @@ const Auth = () => {
   };
 
   return (
-    <div className="min-h-screen bg-background flex items-center justify-center p-6">
-      <form onSubmit={handleSubmit} className="glass-card rounded-2xl p-8 w-full max-w-md space-y-4">
+    <div className="min-h-screen bg-background flex items-center justify-center p-4 sm:p-6">
+      <form onSubmit={handleSubmit} className="glass-card rounded-2xl p-6 sm:p-8 w-full max-w-md space-y-4">
         <h1 className="font-display text-2xl font-bold text-center">
           {mode === "signin" ? "Admin Sign In" : "Create Account"}
         </h1>
