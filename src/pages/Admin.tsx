@@ -146,10 +146,10 @@ const Admin = () => {
   }
 
   return (
-    <div className="min-h-screen bg-background p-6">
+    <div className="min-h-screen bg-background p-4 sm:p-6">
       <div className="container mx-auto max-w-6xl">
-        <div className="flex items-center justify-between mb-8">
-          <h1 className="font-display text-3xl font-bold">Bookings</h1>
+        <div className="flex items-center justify-between mb-6 sm:mb-8 gap-3">
+          <h1 className="font-display text-2xl sm:text-3xl font-bold">Bookings</h1>
           <Button onClick={handleSignOut} variant="outline" size="sm">
             <LogOut className="w-4 h-4 mr-2" />Sign out
           </Button>
@@ -168,19 +168,19 @@ const Admin = () => {
                 b.status === "declined" ? "text-red-500" :
                 b.status === "cancelled" ? "text-muted-foreground" : "text-yellow-500";
               return (
-                <div key={b.id} className="glass-card rounded-xl p-5">
-                  <div className="flex flex-wrap items-start justify-between gap-4">
-                    <div className="flex-1 min-w-[250px]">
+                <div key={b.id} className="glass-card rounded-xl p-4 sm:p-5">
+                  <div className="flex flex-col md:flex-row md:flex-wrap items-stretch md:items-start justify-between gap-4">
+                    <div className="flex-1 min-w-0">
                       <div className="flex items-center gap-3 mb-1">
-                        <h3 className="font-display text-lg font-semibold">{b.name}</h3>
+                        <h3 className="font-display text-base sm:text-lg font-semibold break-words">{b.name}</h3>
                         <span className={`text-xs uppercase font-bold ${statusColor}`}>{b.status}</span>
                       </div>
-                      <p className="text-sm text-muted-foreground">{b.email}</p>
-                      <p className="text-sm mt-2">
+                      <p className="text-sm text-muted-foreground break-all">{b.email}</p>
+                      <p className="text-sm mt-2 break-words">
                         <strong>{dt.toLocaleString(undefined, { dateStyle: "full", timeStyle: "short" })}</strong>
                         <span className="text-muted-foreground"> · {b.timezone}</span>
                       </p>
-                      {b.topic && <p className="text-sm mt-1"><strong>Topic:</strong> {b.topic}</p>}
+                      {b.topic && <p className="text-sm mt-1 break-words"><strong>Topic:</strong> {b.topic}</p>}
                       {b.message && <p className="text-sm mt-1 text-muted-foreground whitespace-pre-wrap">{b.message}</p>}
                       {b.meeting_link && (
                         <div className="mt-2 flex items-center gap-2 flex-wrap">
@@ -188,7 +188,7 @@ const Admin = () => {
                             href={b.meeting_link}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="inline-flex items-center gap-1 text-sm text-primary hover:underline"
+                            className="inline-flex items-center gap-1 text-sm text-primary hover:underline break-all"
                           >
                             Open meeting <ExternalLink className="w-3 h-3" />
                           </a>
@@ -210,7 +210,7 @@ const Admin = () => {
                     </div>
 
                     {b.status === "pending" && (
-                      <div className="flex flex-col gap-2 w-full md:w-auto md:min-w-[320px]">
+                      <div className="flex flex-col gap-2 w-full md:w-auto md:min-w-[280px] lg:min-w-[320px]">
                         <Input
                           placeholder="Paste Zoom or Google Meet link…"
                           value={linkInputs[b.id] || ""}
