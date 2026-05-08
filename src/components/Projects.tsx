@@ -47,21 +47,21 @@ const projects = [
 
 const Projects = () => {
   return (
-    <section id="projects" className="py-24 relative">
-      <div className="container mx-auto px-6">
+    <section id="projects" className="py-16 sm:py-20 lg:py-24 relative">
+      <div className="container mx-auto px-4 sm:px-6">
         {/* Section Header */}
-        <div className="text-center mb-16">
+        <div className="text-center mb-10 sm:mb-14 lg:mb-16">
           <span className="text-primary text-sm font-semibold tracking-wider uppercase mb-4 block">
             Portfolio
           </span>
           <h2 className="section-heading mb-4">Featured Projects</h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-muted-foreground max-w-2xl mx-auto text-sm sm:text-base px-2">
             A selection of recent work across software and technical installations
           </p>
         </div>
 
         {/* Projects Grid */}
-        <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+        <div className="grid sm:grid-cols-2 gap-5 sm:gap-8 max-w-5xl mx-auto">
           {projects.map((project, index) => {
             const Wrapper = project.link ? 'a' : 'div';
             const wrapperProps = project.link ? { href: project.link, target: "_blank", rel: "noopener noreferrer" } : {};
@@ -72,7 +72,7 @@ const Projects = () => {
                 className="group glass-card rounded-2xl overflow-hidden hover:border-primary/30 transition-all duration-500 block"
               >
                 {/* Project Image */}
-                <div className="h-48 relative overflow-hidden">
+                <div className="h-40 sm:h-48 relative overflow-hidden">
                   <img
                     src={project.image}
                     alt={project.title}
@@ -89,7 +89,7 @@ const Projects = () => {
                   </div>
 
                   {/* Category Badge */}
-                  <div className="absolute bottom-4 left-4">
+                  <div className="absolute bottom-3 left-3 sm:bottom-4 sm:left-4">
                     <span className="px-3 py-1.5 text-xs font-medium bg-background/80 backdrop-blur-sm rounded-lg">
                       {project.category}
                     </span>
@@ -97,11 +97,11 @@ const Projects = () => {
                 </div>
 
                 {/* Project Info */}
-                <div className="p-6">
-                  <h3 className="text-xl font-semibold font-display mb-3 group-hover:text-primary transition-colors">
+                <div className="p-5 sm:p-6">
+                  <h3 className="text-lg sm:text-xl font-semibold font-display mb-2 sm:mb-3 group-hover:text-primary transition-colors">
                     {project.title}
                   </h3>
-                  <p className="text-muted-foreground text-sm mb-4 leading-relaxed">
+                  <p className="text-muted-foreground text-sm mb-3 sm:mb-4 leading-relaxed">
                     {project.description}
                   </p>
                   <div className="flex flex-wrap gap-2">
