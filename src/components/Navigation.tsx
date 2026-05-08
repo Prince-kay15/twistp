@@ -27,13 +27,13 @@ const Navigation = () => {
         isScrolled ? "glass-card py-4" : "py-6"
       }`}
     >
-      <div className="container mx-auto px-6 flex items-center justify-between">
+      <div className="container mx-auto px-4 sm:px-6 flex items-center justify-between">
         <a href="#" className="font-display text-xl font-bold text-foreground">
           <span className="text-gradient">TWIST</span>
         </a>
 
         {/* Desktop Navigation */}
-        <div className="hidden md:flex items-center gap-8">
+        <div className="hidden md:flex items-center gap-6 lg:gap-8">
           {navLinks.map((link) => (
             <a key={link.href} href={link.href} className="nav-link text-sm font-medium">
               {link.label}
@@ -49,17 +49,21 @@ const Navigation = () => {
         </div>
 
         {/* Mobile Menu Button */}
-        <button
-          className="md:hidden text-foreground"
-          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-        >
-          {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-        </button>
+        <div className="md:hidden flex items-center gap-2">
+          <ThemeToggle />
+          <button
+            className="text-foreground p-1"
+            aria-label="Toggle menu"
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+          >
+            {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+          </button>
+        </div>
       </div>
 
       {/* Mobile Menu */}
       {isMobileMenuOpen && (
-        <div className="md:hidden glass-card mt-4 mx-6 rounded-xl p-6 animate-fade-in">
+        <div className="md:hidden glass-card mt-4 mx-4 sm:mx-6 rounded-xl p-5 sm:p-6 animate-fade-in">
           <div className="flex flex-col gap-4">
             {navLinks.map((link) => (
               <a
@@ -71,10 +75,6 @@ const Navigation = () => {
                 {link.label}
               </a>
             ))}
-            <div className="flex items-center justify-between pt-2">
-              <span className="text-sm text-muted-foreground">Theme</span>
-              <ThemeToggle />
-            </div>
             <a
               href="#contact"
               className="px-5 py-2.5 bg-primary text-primary-foreground rounded-lg font-medium text-sm text-center hover:opacity-90 transition-opacity"
