@@ -23,39 +23,39 @@ const skillCategories = [
 
 const Skills = () => {
   return (
-    <section id="skills" className="py-24 relative">
+    <section id="skills" className="py-16 sm:py-20 lg:py-24 relative">
       {/* Background Accent */}
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-secondary/30 to-transparent" />
       
-      <div className="container mx-auto px-6 relative z-10">
+      <div className="container mx-auto px-4 sm:px-6 relative z-10">
         {/* Section Header */}
-        <div className="text-center mb-16">
+        <div className="text-center mb-10 sm:mb-14 lg:mb-16">
           <span className="text-primary text-sm font-semibold tracking-wider uppercase mb-4 block">
             Capabilities
           </span>
           <h2 className="section-heading mb-4">Skills & Technologies</h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-muted-foreground max-w-2xl mx-auto text-sm sm:text-base px-2">
             A diverse toolkit spanning software development and technical installations
           </p>
         </div>
 
         {/* Skills Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 max-w-6xl mx-auto">
           {skillCategories.map((category, index) => (
             <div
               key={index}
-              className="glass-card rounded-2xl p-6 hover:border-primary/30 transition-all duration-300"
+              className="glass-card rounded-2xl p-5 sm:p-6 hover:border-primary/30 transition-all duration-300"
             >
               <h3 className="text-lg font-semibold font-display mb-4 text-primary">
                 {category.title}
               </h3>
-              <ul className="space-y-3">
+              <ul className="space-y-2 sm:space-y-3">
                 {category.skills.map((skill, skillIndex) => (
                   <li
                     key={skillIndex}
                     className="flex items-center gap-3 text-muted-foreground text-sm"
                   >
-                    <span className="w-1.5 h-1.5 bg-primary rounded-full" />
+                    <span className="w-1.5 h-1.5 bg-primary rounded-full flex-shrink-0" />
                     {skill}
                   </li>
                 ))}
@@ -65,7 +65,7 @@ const Skills = () => {
         </div>
 
         {/* Stats */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-16 max-w-4xl mx-auto">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 mt-10 sm:mt-14 lg:mt-16 max-w-4xl mx-auto">
           {[
             { value: "50+", label: "Projects Completed" },
             { value: "3+", label: "Years Experience" },
@@ -73,10 +73,10 @@ const Skills = () => {
             { value: "100%", label: "Satisfaction Rate" },
           ].map((stat, index) => (
             <div key={index} className="text-center">
-              <div className="text-3xl md:text-4xl font-bold font-display text-gradient mb-2">
+              <div className="text-2xl sm:text-3xl md:text-4xl font-bold font-display text-gradient mb-1 sm:mb-2">
                 {stat.value}
               </div>
-              <div className="text-sm text-muted-foreground">{stat.label}</div>
+              <div className="text-xs sm:text-sm text-muted-foreground">{stat.label}</div>
             </div>
           ))}
         </div>
