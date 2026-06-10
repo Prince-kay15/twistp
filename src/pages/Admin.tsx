@@ -68,7 +68,7 @@ const Admin = () => {
   const handleAccept = async (b: Booking) => {
     const link = (linkInputs[b.id] || "").trim();
     if (!link || !/^https?:\/\//i.test(link)) {
-      toast({ title: "Add a meeting link", description: "Paste a Zoom or Google Meet URL first.", variant: "destructive" });
+      toast({ title: "Add a meeting link", description: "Paste a meeting URL (e.g. Google Meet) first.", variant: "destructive" });
       return;
     }
     setActingId(b.id);
@@ -212,7 +212,7 @@ const Admin = () => {
                     {b.status === "pending" && (
                       <div className="flex flex-col gap-2 w-full md:w-auto md:min-w-[280px] lg:min-w-[320px]">
                         <Input
-                          placeholder="Paste Zoom or Google Meet link…"
+                          placeholder="Paste meeting link…"
                           value={linkInputs[b.id] || ""}
                           onChange={(e) => setLinkInputs({ ...linkInputs, [b.id]: e.target.value })}
                         />
