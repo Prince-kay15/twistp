@@ -8,6 +8,16 @@ const corsHeaders = {
 
 const RECIPIENT_EMAIL = "princekay043@gmail.com";
 
+function escapeHtml(s: string) {
+  return String(s).replace(/[&<>"']/g, (c) => ({
+    "&": "&amp;",
+    "<": "&lt;",
+    ">": "&gt;",
+    '"': "&quot;",
+    "'": "&#39;",
+  }[c]!));
+}
+
 serve(async (req) => {
   if (req.method === "OPTIONS") {
     return new Response(null, { headers: corsHeaders });
@@ -63,21 +73,28 @@ serve(async (req) => {
     const tutoringName = tutoringType ? (tutoringLabels[tutoringType] || tutoringType) : null;
     const contentName = contentType ? (contentLabels[contentType] || contentType) : null;
 
+    const safeName = escapeHtml(name);
+    const safeEmail = escapeHtml(email);
+    const safeService = escapeHtml(serviceName);
+    const safeTutoring = tutoringName ? escapeHtml(tutoringName) : null;
+    const safeContent = contentName ? escapeHtml(contentName) : null;
+    const safeMessage = escapeHtml(message).replace(/\n/g, "<br>");
+
     const htmlContent = `
       <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px;">
         <h2 style="color: #6366f1; border-bottom: 2px solid #6366f1; padding-bottom: 10px;">
           New Contact Form Submission
         </h2>
         <div style="margin: 20px 0;">
-          <p><strong>Name:</strong> ${name}</p>
-          <p><strong>Email:</strong> ${email}</p>
-          <p><strong>Service:</strong> ${serviceName}</p>
-          ${tutoringName ? `<p><strong>Tutoring Focus:</strong> ${tutoringName}</p>` : ""}
-          ${contentName ? `<p><strong>Content Type:</strong> ${contentName}</p>` : ""}
+          <p><strong>Name:</strong> ${safeName}</p>
+          <p><strong>Email:</strong> ${safeEmail}</p>
+          <p><strong>Service:</strong> ${safeService}</p>
+          ${safeTutoring ? `<p><strong>Tutoring Focus:</strong> ${safeTutoring}</p>` : ""}
+          ${safeContent ? `<p><strong>Content Type:</strong> ${safeContent}</p>` : ""}
         </div>
         <div style="background: #f3f4f6; padding: 15px; border-radius: 8px;">
           <p><strong>Message:</strong></p>
-          <p>${message.replace(/\n/g, "<br>")}</p>
+          <p>${safeMessage}</p>
         </div>
         <hr style="margin-top: 30px; border: none; border-top: 1px solid #e5e7eb;" />
         <p style="color: #9ca3af; font-size: 12px;">Sent from TWIST Portfolio Contact Form</p>
@@ -93,7 +110,7 @@ serve(async (req) => {
       body: JSON.stringify({
         from: "TWIST Contact <onboarding@resend.dev>",
         to: [RECIPIENT_EMAIL],
-        subject: `New Contact: ${name} - ${serviceName}`,
+        subject: `New Contact: ${name} - ${serviceName}`.slice(0, 200),
         html: htmlContent,
         reply_to: email,
       }),
@@ -102,7 +119,11 @@ serve(async (req) => {
     const data = await res.json();
 
     if (!res.ok) {
-      throw new Error(`Resend API error [${res.status}]: ${JSON.stringify(data)}`);
+      console.error("Resend API error:", res.status, data);
+      return new Response(
+        JSON.stringify({ error: "Could not send message. Please try again later." }),
+        { status: 502, headers: { ...corsHeaders, "Content-Type": "application/json" } }
+      );
     }
 
     return new Response(
@@ -111,9 +132,8 @@ serve(async (req) => {
     );
   } catch (error: unknown) {
     console.error("Error sending email:", error);
-    const errorMessage = error instanceof Error ? error.message : "Unknown error";
     return new Response(
-      JSON.stringify({ error: errorMessage }),
+      JSON.stringify({ error: "Could not send message. Please try again later." }),
       { status: 500, headers: { ...corsHeaders, "Content-Type": "application/json" } }
     );
   }
