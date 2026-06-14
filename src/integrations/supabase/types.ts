@@ -30,9 +30,6 @@ export type Database = {
           timezone: string
           topic: string | null
           updated_at: string
-          zoom_join_url: string | null
-          zoom_meeting_id: string | null
-          zoom_start_url: string | null
         }
         Insert: {
           admin_notes?: string | null
@@ -49,9 +46,6 @@ export type Database = {
           timezone?: string
           topic?: string | null
           updated_at?: string
-          zoom_join_url?: string | null
-          zoom_meeting_id?: string | null
-          zoom_start_url?: string | null
         }
         Update: {
           admin_notes?: string | null
@@ -68,9 +62,6 @@ export type Database = {
           timezone?: string
           topic?: string | null
           updated_at?: string
-          zoom_join_url?: string | null
-          zoom_meeting_id?: string | null
-          zoom_start_url?: string | null
         }
         Relationships: []
       }
