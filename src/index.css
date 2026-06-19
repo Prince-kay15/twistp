@@ -6,42 +6,42 @@
 
 @layer base {
   :root {
-    --background: 210 40% 98%;
-    --foreground: 222 47% 11%;
+    --background: 210 25% 92%;
+    --foreground: 222 35% 15%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 222 47% 11%;
+    --card: 210 25% 96%;
+    --card-foreground: 222 35% 15%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 222 47% 11%;
+    --popover: 210 25% 96%;
+    --popover-foreground: 222 35% 15%;
 
-    --primary: 187 80% 42%;
+    --primary: 187 70% 38%;
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 210 40% 96%;
-    --secondary-foreground: 222 47% 11%;
+    --secondary: 210 22% 88%;
+    --secondary-foreground: 222 35% 15%;
 
-    --muted: 210 40% 96%;
-    --muted-foreground: 215 16% 47%;
+    --muted: 210 22% 88%;
+    --muted-foreground: 215 14% 40%;
 
-    --accent: 187 80% 42%;
+    --accent: 187 70% 38%;
     --accent-foreground: 0 0% 100%;
 
-    --destructive: 0 84% 60%;
+    --destructive: 0 70% 50%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 214 32% 91%;
-    --input: 214 32% 91%;
-    --ring: 187 80% 42%;
+    --border: 214 20% 82%;
+    --input: 214 20% 82%;
+    --ring: 187 70% 38%;
 
     --radius: 0.75rem;
 
     /* Custom design tokens */
-    --gradient-primary: linear-gradient(135deg, hsl(187 80% 42%) 0%, hsl(200 80% 50%) 100%);
-    --gradient-hero: linear-gradient(180deg, hsl(210 40% 98%) 0%, hsl(210 40% 96%) 100%);
-    --gradient-card: linear-gradient(135deg, hsl(0 0% 100%) 0%, hsl(210 40% 98%) 100%);
-    --glow-primary: 0 0 60px -15px hsl(187 80% 42% / 0.3);
-    --shadow-card: 0 25px 50px -12px hsl(222 47% 11% / 0.1);
+    --gradient-primary: linear-gradient(135deg, hsl(187 70% 38%) 0%, hsl(200 70% 45%) 100%);
+    --gradient-hero: linear-gradient(180deg, hsl(210 25% 92%) 0%, hsl(210 22% 88%) 100%);
+    --gradient-card: linear-gradient(135deg, hsl(210 25% 96%) 0%, hsl(210 25% 92%) 100%);
+    --glow-primary: 0 0 60px -15px hsl(187 70% 38% / 0.25);
+    --shadow-card: 0 25px 50px -12px hsl(222 47% 11% / 0.12);
     
     --font-display: 'Space Grotesk', sans-serif;
     --font-body: 'Inter', sans-serif;
