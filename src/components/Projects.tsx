@@ -1,4 +1,5 @@
 import { ExternalLink } from "lucide-react";
+import { Link } from "react-router-dom";
 import webDevImg from "@/assets/web-dev.jpg";
 import cctvImg from "@/assets/cctv.jpg";
 import saasImg from "@/assets/saas-dashboard.jpg";
@@ -12,7 +13,7 @@ const projects = [
     description: "Full-stack e-commerce solution with inventory management, payment processing, and real-time analytics dashboard.",
     tags: ["React", "Node.js", "PostgreSQL", "Stripe"],
     image: webDevImg,
-    link: "https://estate-cyan-ten.vercel.app/",
+    to: "/web-projects",
   },
   {
     title: "Corporate Security System",
@@ -63,8 +64,12 @@ const Projects = () => {
         {/* Projects Grid */}
         <div className="grid sm:grid-cols-2 gap-5 sm:gap-8 max-w-5xl mx-auto">
           {projects.map((project, index) => {
-            const Wrapper = project.link ? 'a' : 'div';
-            const wrapperProps = project.link ? { href: project.link, target: "_blank", rel: "noopener noreferrer" } : {};
+            const Wrapper: any = project.to ? Link : project.link ? 'a' : 'div';
+            const wrapperProps: any = project.to
+              ? { to: project.to }
+              : project.link
+              ? { href: project.link, target: "_blank", rel: "noopener noreferrer" }
+              : {};
             return (
               <Wrapper
                 key={index}
