@@ -70,58 +70,54 @@ const Services = () => {
 
         {/* Services Grid */}
         <div className="grid sm:grid-cols-2 gap-4 sm:gap-6 max-w-5xl mx-auto">
-          {services.map((service, index) => {
-            const Wrapper = service.link ? 'a' : 'div';
-            const wrapperProps = service.link ? { href: service.link, target: "_blank", rel: "noopener noreferrer" } : {};
-            return (
-              <Wrapper
-                key={index}
-                {...wrapperProps}
-                className="group glass-card rounded-2xl overflow-hidden hover:border-primary/30 transition-all duration-500 relative min-h-[300px] sm:min-h-[340px] block"
-              >
-                {/* Background Image */}
-                <div className="absolute inset-0">
-                  <img
-                    src={service.image}
-                    alt={service.title}
-                    className="w-full h-full object-cover opacity-40 group-hover:opacity-55 group-hover:scale-105 transition-all duration-700"
-                    loading="lazy"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-background via-background/70 to-background/30" />
+          {services.map((service, index) => (
+            <a
+              key={index}
+              href="#contact"
+              className="group glass-card rounded-2xl overflow-hidden hover:border-primary/30 transition-all duration-500 relative min-h-[300px] sm:min-h-[340px] block cursor-pointer"
+            >
+              {/* Background Image */}
+              <div className="absolute inset-0">
+                <img
+                  src={service.image}
+                  alt={service.title}
+                  className="w-full h-full object-cover opacity-40 group-hover:opacity-55 group-hover:scale-105 transition-all duration-700"
+                  loading="lazy"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-background via-background/70 to-background/30" />
+              </div>
+
+              <div className="relative z-10 p-5 sm:p-8 flex flex-col justify-end h-full">
+                {/* Icon */}
+                <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-xl bg-primary/10 backdrop-blur-sm flex items-center justify-center mb-4 sm:mb-6 group-hover:scale-110 transition-transform duration-300">
+                  <service.icon className="w-6 h-6 sm:w-7 sm:h-7 text-primary" />
                 </div>
 
-                <div className="relative z-10 p-5 sm:p-8 flex flex-col justify-end h-full">
-                  {/* Icon */}
-                  <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-xl bg-primary/10 backdrop-blur-sm flex items-center justify-center mb-4 sm:mb-6 group-hover:scale-110 transition-transform duration-300">
-                    <service.icon className="w-6 h-6 sm:w-7 sm:h-7 text-primary" />
-                  </div>
-
-                  {/* Title */}
-                  <div className="flex items-center justify-between mb-3 sm:mb-4 gap-2">
-                    <h3 className="text-lg sm:text-xl font-semibold font-display">{service.title}</h3>
-                    <ArrowUpRight className="w-5 h-5 flex-shrink-0 text-muted-foreground group-hover:text-primary group-hover:translate-x-1 group-hover:-translate-y-1 transition-all" />
-                  </div>
-
-                  {/* Description */}
-                  <p className="text-muted-foreground mb-4 sm:mb-6 leading-relaxed text-sm sm:text-base">
-                    {service.description}
-                  </p>
-
-                  {/* Features */}
-                  <div className="flex flex-wrap gap-2">
-                    {service.features.map((feature, featureIndex) => (
-                      <span
-                        key={featureIndex}
-                        className="px-2.5 sm:px-3 py-1 sm:py-1.5 text-xs font-medium bg-secondary/80 backdrop-blur-sm rounded-lg text-muted-foreground"
-                      >
-                        {feature}
-                      </span>
-                    ))}
-                  </div>
+                {/* Title */}
+                <div className="flex items-center justify-between mb-3 sm:mb-4 gap-2">
+                  <h3 className="text-lg sm:text-xl font-semibold font-display">{service.title}</h3>
+                  <ArrowUpRight className="w-5 h-5 flex-shrink-0 text-muted-foreground group-hover:text-primary group-hover:translate-x-1 group-hover:-translate-y-1 transition-all" />
                 </div>
-              </Wrapper>
-            );
-          })}
+
+                {/* Description */}
+                <p className="text-muted-foreground mb-4 sm:mb-6 leading-relaxed text-sm sm:text-base">
+                  {service.description}
+                </p>
+
+                {/* Features */}
+                <div className="flex flex-wrap gap-2">
+                  {service.features.map((feature, featureIndex) => (
+                    <span
+                      key={featureIndex}
+                      className="px-2.5 sm:px-3 py-1 sm:py-1.5 text-xs font-medium bg-secondary/80 backdrop-blur-sm rounded-lg text-muted-foreground"
+                    >
+                      {feature}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </a>
+          ))}
         </div>
       </div>
     </section>
