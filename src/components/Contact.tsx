@@ -1,4 +1,4 @@
-import { Mail, Phone, MapPin, Send, MessageCircle, Loader2 } from "lucide-react";
+import { Mail, Phone, MapPin, Send, MessageCircle, Loader2, ChevronDown } from "lucide-react";
 import { FaXTwitter, FaInstagram, FaSnapchat, FaTiktok } from "react-icons/fa6";
 import { useState } from "react";
 import { supabase } from "@/integrations/supabase/client";
@@ -168,21 +168,26 @@ const Contact = () => {
                 </div>
               </div>
 
-              <div>
+              <div className="group/select">
                 <label className="text-sm text-muted-foreground mb-2 block">Service Interested In</label>
-                <select
-                  value={formData.service}
-                  onChange={(e) => setFormData({ ...formData, service: e.target.value, tutoringType: "", contentType: "" })}
-                  className="w-full px-4 py-3 bg-secondary border border-border rounded-xl focus:border-primary focus:outline-none transition-colors text-foreground"
-                >
-                  <option value="">Select a service</option>
-                  <option value="web">Web Development</option>
-                  <option value="software">Software Engineering</option>
-                  <option value="cctv">CCTV Installation</option>
-                  <option value="telecom">Telecom Installation</option>
-                  <option value="tutoring">Full Stack Web Dev Tutoring</option>
-                  <option value="content">Content Creation</option>
-                </select>
+                <div className="relative">
+                  <select
+                    value={formData.service}
+                    onChange={(e) => setFormData({ ...formData, service: e.target.value, tutoringType: "", contentType: "" })}
+                    className="w-full px-4 py-3 bg-secondary/70 border border-border rounded-xl focus:outline-none text-foreground appearance-none cursor-pointer transition-all duration-300 hover:border-primary/50 hover:bg-secondary focus:border-primary focus:ring-2 focus:ring-primary/20 focus:shadow-[0_0_20px_-4px_hsl(var(--primary)/0.25)] pr-10"
+                  >
+                    <option value="">Select a service</option>
+                    <option value="web">Web Development</option>
+                    <option value="software">Software Engineering</option>
+                    <option value="cctv">CCTV Installation</option>
+                    <option value="telecom">Telecom Installation</option>
+                    <option value="tutoring">Full Stack Web Dev Tutoring</option>
+                    <option value="content">Content Creation</option>
+                  </select>
+                  <div className="absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none text-muted-foreground transition-transform duration-300 group-focus-within/select:rotate-180 group-hover/select:text-primary">
+                    <ChevronDown className="w-5 h-5" />
+                  </div>
+                </div>
               </div>
 
               {formData.service === "tutoring" && (
