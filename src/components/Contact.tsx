@@ -1,4 +1,4 @@
-import { Mail, Phone, MapPin, Send, MessageCircle, Loader2 } from "lucide-react";
+import { Mail, Phone, MapPin, Send, MessageCircle, Loader2, ChevronDown } from "lucide-react";
 import { FaXTwitter, FaInstagram, FaSnapchat, FaTiktok } from "react-icons/fa6";
 import { useState } from "react";
 import { supabase } from "@/integrations/supabase/client";
