@@ -117,7 +117,7 @@ const Contact = () => {
                   {[
                     { icon: FaXTwitter, href: "https://x.com/princekay043", label: "Twitter" },
                     { icon: FaInstagram, href: "https://www.instagram.com/exetwist/", label: "Instagram" },
-                    { icon: FaSnapchat, href: "https://www.snapchat.com/add/princekay2022", label: "Snapchat" },
+                    { icon: FaSnapchat, href: "https://www.snapchat.com/@realprincekay", label: "Snapchat" },
                     { icon: FaTiktok, href: "https://www.tiktok.com/@exetwist", label: "TikTok" },
                   ].map((social, index) => (
                     <a
